@@ -34,7 +34,6 @@ class User(AbstractUser):
     date_of_birth = models.DateField(null=True, blank=True)
     profile_picture = models.ImageField(upload_to='profile_pics/', null=True, blank=True)
     
-    # Additional fields for user type
     is_customer = models.BooleanField(default=False)
     is_restaurant = models.BooleanField(default=False)
     is_delivery_person = models.BooleanField(default=False)
