@@ -7,6 +7,7 @@ from .serializers import (
     OrderCreateSerializer, OrderDetailSerializer
 )
 from .permissions import IsRestaurantOwner, IsCustomer
+from base.permissions import IsOwnerOrReadOnly
 
 class RestaurantViewSet(viewsets.ModelViewSet):
     queryset = Restaurant.objects.all()

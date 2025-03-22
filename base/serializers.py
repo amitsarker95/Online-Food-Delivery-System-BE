@@ -18,3 +18,9 @@ class CustomUserSerializer(UserSerializer):
                  'address', 'date_of_birth', 'profile_picture', 'is_customer',
                  'is_restaurant', 'is_delivery_person')
         read_only_fields = ('id', 'email')
+
+class PublicUserSerializer(UserSerializer):
+    """Serializer for public user data (limited fields)"""
+    class Meta(UserSerializer.Meta):
+        model = User
+        fields = ('id', 'first_name', 'last_name', 'is_customer', 'is_restaurant', 'is_delivery_person')
