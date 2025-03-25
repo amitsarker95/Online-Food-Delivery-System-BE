@@ -35,7 +35,7 @@ class MenuItemViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         restaurant = Restaurant.objects.get(id=self.kwargs['restaurant_pk'])
         if restaurant.owner != self.request.user:
-            raise permissions.PermissionDenied("You don't own this restaurant")
+            raise permissions.PermissionDenied("You don't own this restaurant to add menu items.")
         serializer.save(restaurant=restaurant)
 
 class OrderViewSet(viewsets.ModelViewSet):
