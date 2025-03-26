@@ -65,7 +65,7 @@ class OrderViewSet(viewsets.ModelViewSet):
         new_status = request.data.get('status')
         if new_status not in dict(Order.STATUS_CHOICES):
             return Response(
-                {'error': 'Invalid status'},
+                {'error': 'Invalid status choice.'},
                 status=status.HTTP_400_BAD_REQUEST
             )
         order.status = new_status
